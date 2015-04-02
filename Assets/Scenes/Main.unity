@@ -122,6 +122,10 @@ Prefab:
       propertyPath: m_Name
       value: platform
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
   m_RootGameObject: {fileID: 392528605}
@@ -174,6 +178,10 @@ Prefab:
       propertyPath: m_Name
       value: platform
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
   m_RootGameObject: {fileID: 101457852}
@@ -192,7 +200,7 @@ GameObject:
   - 23: {fileID: 101457853}
   m_Layer: 0
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,7 +272,7 @@ GameObject:
   - 23: {fileID: 122201709}
   m_Layer: 0
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,6 +377,10 @@ Prefab:
     - target: {fileID: 100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
       propertyPath: m_Name
       value: platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
@@ -532,7 +544,7 @@ GameObject:
   - 23: {fileID: 392528606}
   m_Layer: 0
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -714,6 +726,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bf32aed69825541a28e9fa041e4a96bb, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf32aed69825541a28e9fa041e4a96bb, type: 2}
   m_RootGameObject: {fileID: 2037079466}
@@ -757,6 +773,10 @@ Prefab:
     - target: {fileID: 400000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
@@ -925,6 +945,10 @@ Prefab:
       propertyPath: m_Name
       value: platform
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6102267a4104a4b6eaf3681a7c321eb1, type: 2}
   m_RootGameObject: {fileID: 1775571005}
@@ -1017,7 +1041,7 @@ GameObject:
   - 114: {fileID: 1341927711}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1147,6 +1171,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 041b65104138b40438425d504d5cb6f0, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 041b65104138b40438425d504d5cb6f0, type: 2}
+      propertyPath: playerPoint
+      value: 
+      objectReference: {fileID: 1447775343}
+    - target: {fileID: 11400000, guid: 041b65104138b40438425d504d5cb6f0, type: 2}
+      propertyPath: whatIsGround.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 041b65104138b40438425d504d5cb6f0, type: 2}
+      propertyPath: playerBody
+      value: 
+      objectReference: {fileID: 1447775345}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 041b65104138b40438425d504d5cb6f0, type: 2}
   m_RootGameObject: {fileID: 1447775339}
@@ -1164,9 +1204,10 @@ GameObject:
   - 23: {fileID: 1447775340}
   - 136: {fileID: 1447775341}
   - 114: {fileID: 1447775344}
+  - 54: {fileID: 1447775345}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1238,7 +1279,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c2b9e538c5e7446bac88488b04b81b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 10
+  groundCheck: {fileID: 0}
+  playerPoint: {fileID: 1447775343}
+  groundRad: .200000003
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  playerBody: {fileID: 1447775345}
   m_jumpHeight: 11
+--- !u!54 &1447775345
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1447775339}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1682083948
 Prefab:
   m_ObjectHideFlags: 0
@@ -1376,7 +1440,7 @@ GameObject:
   - 23: {fileID: 1775571006}
   m_Layer: 0
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1448,7 +1512,7 @@ GameObject:
   - 23: {fileID: 1778597077}
   m_Layer: 0
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1546,6 +1610,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 25b5aff856c3c4030a437967cd24d182, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25b5aff856c3c4030a437967cd24d182, type: 2}
   m_RootGameObject: {fileID: 1341927705}
@@ -1614,7 +1682,7 @@ GameObject:
   - 114: {fileID: 2037079468}
   m_Layer: 0
   m_Name: MovingPlatform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

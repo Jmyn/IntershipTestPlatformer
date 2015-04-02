@@ -6,33 +6,40 @@ public class ComponentBullet : MonoBehaviour
 	[SerializeField]
 	protected int m_dmg = 1;
 
-
 	void Start()
 	{
-
+        Destroy(gameObject, 2f);
 	}
 	// Update is called once per frame
 	void Update ()
 	{
-	
 	}
 
 	void OnTriggerEnter(Collider collider)
 	{
-		if (collider.name == "platform")
+        Debug.Log("COLLIDE");
+		if (collider.tag == "Ground")
 		{
-			ComponentHealth a = collider.gameObject.GetComponent<ComponentHealth>();
-			if (a != null)
-				a.Modify(-m_dmg);
-
-			Func();
-
+            OnCollidePlatform();
 		}
-
+        if(collider.tag =="Enemy") {
+            OnCollideEnemy(collider);
+        }
+        
 	}
-	
-	public void Func()
+
+    public void OnCollidePlatform()
 	{
 		Destroy (gameObject);
 	}
+
+    public void OnCollideEnemy(Collider collider)
+    {
+        ComponentHealth enemyHp = collider.gameObject.GetComponent<ComponentHealth>();
+        if (enemyHp != null)
+        {
+            enemyHp.Modify(-m_dmg);
+        }
+        Destroy(gameObject);
+    }
 }

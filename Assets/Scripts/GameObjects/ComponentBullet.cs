@@ -6,14 +6,6 @@ public class ComponentBullet : MonoBehaviour
 	[SerializeField]
 	protected int m_dmg = 1;
 
-	void Start()
-	{
-        Destroy(gameObject, 2f);
-	}
-	// Update is called once per frame
-	void Update ()
-	{
-	}
 
 	void OnTriggerEnter(Collider collider)
 	{
@@ -30,7 +22,7 @@ public class ComponentBullet : MonoBehaviour
 
     public void OnCollidePlatform()
 	{
-		Destroy (gameObject);
+		Destroy ();
 	}
 
     public void OnCollideEnemy(Collider collider)
@@ -40,6 +32,21 @@ public class ComponentBullet : MonoBehaviour
         {
             enemyHp.Modify(-m_dmg);
         }
-        Destroy(gameObject);
+        Destroy();
+    }
+
+    void Destroy()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void OnEnable()
+    {
+        Invoke("Destroy",2f);
+    }
+
+    void OnDisable()
+    {
+        CancelInvoke();
     }
 }

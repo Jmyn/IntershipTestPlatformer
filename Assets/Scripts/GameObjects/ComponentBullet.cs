@@ -10,14 +10,20 @@ public class ComponentBullet : MonoBehaviour
 	protected int m_dmg = 1;
 
 
-	void OnTriggerEnter(Collider collider)
+	void OnTriggerEnter(Collider collision)
 	{
-		if (collider.tag == "Ground")
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
 		{
             OnCollidePlatform();
 		}
-        if(collider.tag == enemy) {
-            OnCollideEnemy(collider);
+        
+        if (collision.tag == enemy)
+        {
+            OnCollideEnemy(collision);
+        }
+        if (collision.tag == "Enemy")
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>().collider);
         }
         
 	}
@@ -44,8 +50,8 @@ public class ComponentBullet : MonoBehaviour
 
     void OnEnable()
     {
-        GameObject ownerObj = GameObject.FindGameObjectWithTag(owner);
 
+        GameObject ownerObj = GameObject.Find(owner);
         Physics.IgnoreCollision(ownerObj.GetComponent<Collider>(), GetComponent<Collider>());
         Invoke("Destroy", bulletLifeTime);
     }
@@ -55,9 +61,9 @@ public class ComponentBullet : MonoBehaviour
         CancelInvoke();
     }
 
-    public void SetOwner(string tag)
+    public void SetOwner(string ownerName)
     {
-        owner = tag;
+        owner = ownerName;
         enemy = owner == "Player" ? "Enemy" : "Player";
     }
 }

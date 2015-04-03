@@ -3,6 +3,11 @@ using System.Collections;
 
 public class ComponentHealth : MonoBehaviour
 {
+    public float invulnerablePeriod = 1f;
+    public float knockBackForce = 20f;
+    private bool isInvul = false;
+    private bool timerActive = false;
+    private float m_time;
 	[SerializeField]
 	protected int m_MaxHP = 10;
 	
@@ -17,6 +22,15 @@ public class ComponentHealth : MonoBehaviour
 	{
 		m_CurrHP = m_MaxHP;
 	}
+
+    void Update()
+    {
+        if (timerActive && Time.time >= m_time + invulnerablePeriod)
+        {
+            timerActive = false;
+            isInvul = false;
+        }
+    }
 	
 	public void Modify(int amount)
 	{
@@ -31,6 +45,32 @@ public class ComponentHealth : MonoBehaviour
 			Die();
 		}
 	}
+
+    
+
+    void OnTriggerStay(Collider collider)
+    {
+        if (collider.tag == "Enemy" && !isInvul)
+        {
+            Modify(-1);
+            isInvul = true;
+            StartTimer();
+            KnockBack();
+        }
+
+    }
+
+    void KnockBack()
+    {
+
+        rigidbody.AddForce(new Vector3(-transform.rigidbody.velocity.x * knockBackForce, 5, 0), ForceMode.VelocityChange);
+    }
+
+    void StartTimer()
+    {
+        m_time = Time.time;
+        timerActive = true;
+    }
 	
 	public void Set(int amount)
 	{

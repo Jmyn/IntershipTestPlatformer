@@ -4,7 +4,8 @@ using System.Collections;
 public class ComponentMovingPlatform : MonoBehaviour 
 {
     public float maxMove = 3f;
-    private bool left = true;
+    public float speed = 2;
+    public bool left = true;
     private float startX;
     private float leftEnd;
     private float rightEnd;
@@ -25,11 +26,13 @@ public class ComponentMovingPlatform : MonoBehaviour
             left = true;
         }
         if(left) {
-            transform.Translate(Vector3.left * Time.deltaTime);
+            transform.Translate(Vector3.left * Time.deltaTime * speed);
         } else {
-            transform.Translate(Vector3.right * Time.deltaTime);
+            transform.Translate(Vector3.right * Time.deltaTime * speed);
 
         }
 	}
+    
+   
 	
 }

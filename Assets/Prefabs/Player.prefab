@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -69,6 +69,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c2b9e538c5e7446bac88488b04b81b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  facingRight: 1
+  maxSpeed: 10
+  moveForce: 100
+  doubleJump: 0
+  jump: 0
+  grounded: 0
   m_jumpHeight: 11
 --- !u!136 &13600000
 CapsuleCollider:

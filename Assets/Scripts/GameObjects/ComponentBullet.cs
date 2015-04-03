@@ -3,18 +3,20 @@ using System.Collections;
 
 public class ComponentBullet : MonoBehaviour
 {
+    private string owner = "Player";
+    private string enemy = "Enemy";
+    private float bulletLifeTime = 2f;
 	[SerializeField]
 	protected int m_dmg = 1;
 
 
 	void OnTriggerEnter(Collider collider)
 	{
-        Debug.Log("COLLIDE");
 		if (collider.tag == "Ground")
 		{
             OnCollidePlatform();
 		}
-        if(collider.tag =="Enemy") {
+        if(collider.tag == enemy) {
             OnCollideEnemy(collider);
         }
         
@@ -42,11 +44,20 @@ public class ComponentBullet : MonoBehaviour
 
     void OnEnable()
     {
-        Invoke("Destroy",2f);
-    }
+        GameObject ownerObj = GameObject.FindGameObjectWithTag(owner);
 
+        Physics.IgnoreCollision(ownerObj.GetComponent<Collider>(), GetComponent<Collider>());
+        Invoke("Destroy", bulletLifeTime);
+    }
+        
     void OnDisable()
     {
         CancelInvoke();
+    }
+
+    public void SetOwner(string tag)
+    {
+        owner = tag;
+        enemy = owner == "Player" ? "Enemy" : "Player";
     }
 }

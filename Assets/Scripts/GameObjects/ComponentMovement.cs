@@ -26,7 +26,7 @@ public class ComponentMovement : MonoBehaviour
     void Awake()
     {
         // Setting up references.
-        groundCheck = transform.Find("groundCheck");
+        groundCheck = transform.Find("/"+name +"/groundCheck");
     }
 
     void Update()

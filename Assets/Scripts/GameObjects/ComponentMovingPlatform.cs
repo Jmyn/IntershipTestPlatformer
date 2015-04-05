@@ -6,25 +6,26 @@ public class ComponentMovingPlatform : MonoBehaviour
     public float maxMove = 3f;
     public float speed = 2;
     public bool left = true;
-    private float startX;
-    private float leftEnd;
-    private float rightEnd;
+    private float startTime;
+    private float elaspedTime = 0;
 	//TODO Moving Platform
 	void Start () 
 	{
-        startX = transform.position.x;
-        leftEnd = startX - maxMove;
-        rightEnd = startX + maxMove;
+        startTime = Time.time;
 	}
+
+    void Update()
+    {
+        elaspedTime = Time.time - startTime;
+        if(elaspedTime >= maxMove) {
+            left = !left;
+            elaspedTime = 0;
+            startTime = Time.time;
+        }
+    }
 
 	void FixedUpdate()
 	{   
-        if(transform.position.x < leftEnd) {
-            left = false;
-        } 
-        if(transform.position.x > rightEnd) {
-            left = true;
-        }
         if(left) {
             transform.Translate(Vector3.left * Time.deltaTime * speed);
         } else {

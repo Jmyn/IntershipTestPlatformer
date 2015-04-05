@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ComponentBullet : MonoBehaviour
 {
-    private string owner = "Player";
+    public string owner = "Player";
     private string enemy = "Enemy";
     private float bulletLifeTime = 2f;
 	[SerializeField]
@@ -20,11 +20,7 @@ public class ComponentBullet : MonoBehaviour
         if (collision.tag == enemy)
         {
             OnCollideEnemy(collision);
-        }
-        if (collision.tag == "Enemy")
-        {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>().collider);
-        }
+        } 
         
 	}
 
@@ -52,8 +48,14 @@ public class ComponentBullet : MonoBehaviour
     {
 
         GameObject ownerObj = GameObject.Find(owner);
-        Physics.IgnoreCollision(ownerObj.GetComponent<Collider>(), GetComponent<Collider>());
-        Invoke("Destroy", bulletLifeTime);
+        if(ownerObj != null) {
+            ComponentShoot cs =ownerObj.GetComponent<ComponentShoot>();
+            if(cs != null) {
+                m_dmg = cs.GetBulletDmg();
+            }
+            Physics.IgnoreCollision(ownerObj.GetComponent<Collider>().collider, GetComponent<Collider>().collider);
+            Invoke("Destroy", bulletLifeTime);
+        }
     }
         
     void OnDisable()

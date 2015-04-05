@@ -4,9 +4,9 @@ using System.Collections;
 [RequireComponent(typeof(ComponentShoot))]
 public class ComponentCooldown : MonoBehaviour
 {
-
+    public float m_originalCd = 1f;
 	public float m_cooldownTimer = 1f;
-    private bool active = false;
+    private bool onCooldown = false;
 	private float m_timeStamp;
     private ComponentShoot cs;
 
@@ -23,9 +23,9 @@ public class ComponentCooldown : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (active && Time.time >= m_timeStamp+ m_cooldownTimer )
+        if (onCooldown && Time.time >= m_timeStamp + m_cooldownTimer)
 		{
-            active = false;
+            onCooldown = false;
             cs.SetCooldown(false);
 		}
 	}
@@ -37,7 +37,7 @@ public class ComponentCooldown : MonoBehaviour
 
     public void StartCooldown()
     {
-        active = true;
+        onCooldown = true;
         m_timeStamp = Time.time;
     }
 }

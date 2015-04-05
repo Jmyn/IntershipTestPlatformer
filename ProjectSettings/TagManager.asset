@@ -9,6 +9,10 @@ TagManager:
   - MovingPlatform
   - Bullet
   - Obstacle
+  - EnemySpawner
+  - Fader
+  - 
+  - Pickup
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

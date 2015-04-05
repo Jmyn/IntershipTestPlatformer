@@ -7,6 +7,9 @@ public class ComponentShoot : MonoBehaviour
 {
     private bool onCooldown = false;
     private ComponentCooldown cd;
+
+    [SerializeField]
+    protected int m_dmg = 1;
 	[SerializeField]
 	protected float m_Speed = 20.0f;
 
@@ -56,4 +59,14 @@ public class ComponentShoot : MonoBehaviour
         onCooldown = cd;
     }
 
+    public void IncreaseBulletSpeed(float amt) {
+        m_Speed += amt;
+    }
+
+    public void increaseBulletDamage(int amt)
+    {
+        m_dmg += amt;
+    }
+
+    public int GetBulletDmg() { return m_dmg; }
 }

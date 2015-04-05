@@ -12,8 +12,6 @@ public class ComponentMovement : MonoBehaviour
     private Transform groundCheck;			// A position marking where to check if the player is grounded.
     public bool grounded = false;			// Whether or not the player is grounded.
 
-	//TODO movement
-	float m_speed = 0.1f;
 	[SerializeField]
 	protected float m_jumpHeight = 11;
 
@@ -84,11 +82,8 @@ public class ComponentMovement : MonoBehaviour
 		
         if (jump)
         {
-            //rb.AddForce(transform.up * m_jumpHeight,ForceMode.VelocityChange);
-
-            
-            rb.velocity = new Vector3(rb.velocity.x, 0f,0f);
             // Add a vertical force to the player.
+            rb.velocity = new Vector3(rb.velocity.x, 0f,0f);
             rb.AddForce(new Vector3(0f, m_jumpHeight, 0f), ForceMode.VelocityChange);
 
             // Make sure the player can't jump again until the jump conditions from Update are satisfied.
@@ -108,7 +103,17 @@ public class ComponentMovement : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-	
-	
 
+    public void SetMaxSpeed(float spd)
+    {
+        maxSpeed = spd;
+    }
+
+    public void SetJumpHeight(float height)
+    {
+        m_jumpHeight = height;
+    }
+
+    public float GetMaxSpeed() { return maxSpeed; }
+    public float GetJumpHeight() { return m_jumpHeight; }
 }

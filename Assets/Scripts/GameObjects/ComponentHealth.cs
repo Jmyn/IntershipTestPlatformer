@@ -17,6 +17,7 @@ public class ComponentHealth : MonoBehaviour
 	public int CurrHP {	get	{ return m_CurrHP; } }
 	public int MaxHP {	get	{ return m_MaxHP; } }
 	public float FractionHP { get { return (float)(m_CurrHP)/(float)(m_MaxHP); } }
+
 	
 	void Start()
 	{
@@ -34,6 +35,7 @@ public class ComponentHealth : MonoBehaviour
 	
 	public void Modify(int amount)
 	{
+        UIFloatingText.current.Show(transform.position, amount+"");
 		m_CurrHP += amount;
 		
 		if (m_CurrHP > m_MaxHP)
@@ -50,7 +52,7 @@ public class ComponentHealth : MonoBehaviour
 
     void OnTriggerStay(Collider collider)
     {
-        if (collider.tag == "Enemy" && !isInvul)
+        if (this.collider.tag == "Player" &&collider.tag == "Enemy" && !isInvul)
         {
             Modify(-1);
             isInvul = true;
@@ -80,6 +82,19 @@ public class ComponentHealth : MonoBehaviour
 		
 	public void Die()
 	{
+        if(tag == "Enemy") {
+            GameControl.current.EnemyDied();
+        }
 		Destroy(this.gameObject);
 	}
+
+    public void SetMaxHp(int amt)
+    {
+        m_MaxHP = amt;
+    }
+
+    public void setCurrHp(int amt)
+    {
+        m_CurrHP = amt;
+    }
 }
